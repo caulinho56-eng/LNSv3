@@ -16,7 +16,7 @@ local function CheckUpdate()
         if data.status ~= "active" then
             return {
                 blocked = true,
-                message = "Sistema temporariamente off."
+                message = "Sistema temporariamente indisponivel."
             }
         end
 
@@ -1365,14 +1365,14 @@ end
 
 tab("Info", "ℹ️", 2)
 sep(32)
-tab("Bypass", "🛡️", 186)
-tab("Principal", "🏠", 36)
+tab("Main", "🏠", 36)
 tab("Player", "👤", 66)
 tab("Aimbot", "🎯", 96)
 tab("Teleport", "📍", 126)
-tab("Trolls", "😈", 156)
+tab("Troll", "😈", 156)
+tab("Bypass", "🛡️", 186)
 sep(216)
-tab("Configs", "⚙️", 220)
+tab("Settings", "⚙️", 220)
 
 pInfo = newPage("Info")
 local pMain = newPage("Main")
@@ -2415,12 +2415,12 @@ end))
 
 toggleRow("Aimbot", 1, "Aimbot", setAimbot)
 toggleRow("Aimbot", 2, "Segurar para mirar", function(v) AIM.hold = v end)
-toggleRow("Aimbot", 3, "Mover botão", function(v) AIM.moveBtn = v end)
-segRow("Aimbot", 4, "Parte do alvo", { "Head", "Torso", "Mouse" }, 1, function(i) AIM.partMode = i end)
+toggleRow("Aimbot", 3, "Mover botão flutuante", function(v) AIM.moveBtn = v end)
+segRow("Aimbot", 4, "Parte do alvo", { "Cabeça", "Torso", "Mouse" }, 1, function(i) AIM.partMode = i end)
 sliderRow("Aimbot", 5, "Suavização", 0, 95, AIM.smooth, function(v) return v .. "%" end, function(v) AIM.smooth = v end)
 toggleRow("Aimbot", 6, "Team Check", function(v) AIM.team = v end, true)
 toggleRow("Aimbot", 7, "Wall Check", function(v) AIM.wall = v end, true)
-toggleRow("Aimbot", 8, "Círculo FOV", function(v) AIM.showFov = v end, true)
+toggleRow("Aimbot", 8, "Mostrar círculo FOV", function(v) AIM.showFov = v end, true)
 sliderRow("Aimbot", 9, "Tamanho do FOV", 40, 350, AIM.fov, function(v) return v .. " px" end, function(v) AIM.fov = v end)
 sliderRow("Aimbot", 10, "Espessura do FOV", 1, 6, AIM.thick, function(v) return v .. " px" end, function(v) AIM.thick = v end)
 sliderRow("Aimbot", 11, "Preenchimento do FOV", 0, 40, AIM.fill, function(v) return v .. "%" end, function(v) AIM.fill = v end)
@@ -2450,7 +2450,7 @@ do
 
 	local status = txt(pTP, {
 		Size = UDim2.new(1, 0, 0, 18), LayoutOrder = 3, Font = Enum.Font.Gotham,
-		TextSize = 11, TextColor3 = GRAY, Text = "Selecione um Player abaixo",
+		TextSize = 11, TextColor3 = GRAY, Text = "Selecione um jogador abaixo",
 	})
 
 	local function setStatus(t) status.Text = t end
@@ -3122,7 +3122,7 @@ end))
 txt(pInfo, {
 	Size = UDim2.new(1, 0, 0, 0), AutomaticSize = Enum.AutomaticSize.Y, TextWrapped = true,
 	TextYAlignment = Enum.TextYAlignment.Top, Font = Enum.Font.Gotham, TextSize = 12, TextColor3 = GRAY,
-	Text = "LNS HUB v3\nBy LineXScripts\n\nNOVIDADES v3\n• Bypass \n• Anti Void\n• Anti Fling\n• Esp Vida\n• Aba Troll\n• Melhoramento da Aba Aimbot\n• Team Check • Wall Check\n• Anti AFK\n• Fullbright • Xray\n\nYouTube: LineXScripts",
+	Text = "LNS HUB v3\nBy LineXScripts\n\nNOVIDADES v3\n• Aba Bypass\n• Anti Void\n• Anti Fling\n• Esp Vida\n• Aba Troll\n• Botão do Aimbot redesenhado\n• FOV AJUSTÁVEL\n• Team Check • Wall Check\n• Anti AFK\n• Fullbright • Xray\n\n• Spectate Player\n\nYouTube: LineXScripts",
 })
 
 local function clearCache()
@@ -3131,7 +3131,7 @@ local function clearCache()
 	pcall(function() if cleardrawcache then cleardrawcache() end end)
 	pcall(function()
 		game:GetService("StarterGui"):SetCore("SendNotification", {
-			Title = "LNS HUB", Text = "Cachê limpo!", Duration = 3,
+			Title = "LNS HUB", Text = "Cache limpo!", Duration = 3,
 		})
 	end)
 end
